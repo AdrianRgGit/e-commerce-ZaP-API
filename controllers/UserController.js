@@ -19,7 +19,11 @@ const UserController = {
 
   async getUserRegistered(req, res) {
     try {
-      const getUsers = await User.findAll({
+      const getUsers = await User.findOne({
+        where: {
+          id: req.user.id,
+        },
+
         include: [
           {
             model: Order,
@@ -34,6 +38,7 @@ const UserController = {
         ],
       });
 
+      console.warn(req.user.id);
       res.send({ msg: "User: ", getUsers });
     } catch (error) {
       console.error(error);
@@ -43,10 +48,12 @@ const UserController = {
     }
   },
 
+  // getUserOrder
+
   async createUser(req, res, next) {
     try {
-      req.body.role = "user"; //añadimos role user por defecto
-      const password = await bcrypt.hash(req.body.password, 10); //encriptamos contraseña
+      req.body.role = "user";
+      const password = await bcrypt.hash(req.body.password, 10);
       const user = await User.create({ ...req.body, password });
       res.status(201).send({ msg: "Usuario creado con éxito", user });
     } catch (error) {
@@ -94,7 +101,6 @@ const UserController = {
         return res.status(400).send({ msg: "Incorrect username or password" });
       }
 
-      // ! He puesto que el token expire en 1 minuto. Funciona pero el token no me lo borra, esto genera problemas.
       const token = jwt.sign({ id: user.id }, jwt_secret, {
         /* expiresIn: "60000", */
       });
