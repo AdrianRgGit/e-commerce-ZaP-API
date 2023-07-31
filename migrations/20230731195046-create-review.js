@@ -15,6 +15,9 @@ module.exports = {
       comment: {
         type: Sequelize.STRING
       },
+      image: {
+        type: Sequelize.STRING
+      },
       ShoeId: {
         type: Sequelize.INTEGER
       },

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -10,7 +10,8 @@ module.exports = {
         color: "Black",
         price: 89.99,
         TypeId: 4,
-        // OrderId: [3, 6],
+        image:
+          "https://w7.pngwing.com/pngs/281/1/png-transparent-drawing-sneakers-shoe-coloring-book-sport-ear-miscellaneous-white-pencil.png",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -21,7 +22,8 @@ module.exports = {
         color: "White",
         price: 79.99,
         TypeId: 7,
-        // OrderId: [5, 8, 10],
+        image:
+          "https://w7.pngwing.com/pngs/281/1/png-transparent-drawing-sneakers-shoe-coloring-book-sport-ear-miscellaneous-white-pencil.png",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -32,7 +34,8 @@ module.exports = {
         color: "Red",
         price: 69.99,
         TypeId: 1,
-        // OrderId: 5,
+        image:
+          "https://w7.pngwing.com/pngs/281/1/png-transparent-drawing-sneakers-shoe-coloring-book-sport-ear-miscellaneous-white-pencil.png",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -43,7 +46,8 @@ module.exports = {
         color: "Blue",
         price: 99.99,
         TypeId: 3,
-        // OrderId: [1, 6],
+        image:
+          "https://w7.pngwing.com/pngs/281/1/png-transparent-drawing-sneakers-shoe-coloring-book-sport-ear-miscellaneous-white-pencil.png",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -54,7 +58,8 @@ module.exports = {
         color: "Grey",
         price: 109.99,
         TypeId: 5,
-        // OrderId: [5, 5],
+        image:
+          "https://w7.pngwing.com/pngs/281/1/png-transparent-drawing-sneakers-shoe-coloring-book-sport-ear-miscellaneous-white-pencil.png",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -65,7 +70,8 @@ module.exports = {
         color: "Green",
         price: 79.99,
         TypeId: 8,
-        // OrderId: [3, 6, 5, 7],
+        image:
+          "https://w7.pngwing.com/pngs/281/1/png-transparent-drawing-sneakers-shoe-coloring-book-sport-ear-miscellaneous-white-pencil.png",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -76,7 +82,8 @@ module.exports = {
         color: "Yellow",
         price: 59.99,
         TypeId: 10,
-        // OrderId: [10, 2, 1],
+        image:
+          "https://w7.pngwing.com/pngs/281/1/png-transparent-drawing-sneakers-shoe-coloring-book-sport-ear-miscellaneous-white-pencil.png",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -87,7 +94,8 @@ module.exports = {
         color: "Pink",
         price: 69.99,
         TypeId: 5,
-        // OrderId: [2, 9],
+        image:
+          "https://w7.pngwing.com/pngs/281/1/png-transparent-drawing-sneakers-shoe-coloring-book-sport-ear-miscellaneous-white-pencil.png",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -98,7 +106,8 @@ module.exports = {
         color: "Purple",
         price: 89.99,
         TypeId: 1,
-        // OrderId: [3, 8],
+        image:
+          "https://w7.pngwing.com/pngs/281/1/png-transparent-drawing-sneakers-shoe-coloring-book-sport-ear-miscellaneous-white-pencil.png",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -109,19 +118,20 @@ module.exports = {
         color: "Orange",
         price: 99.99,
         TypeId: 3,
-        // OrderId: [9, 7],
+        image:
+          "https://w7.pngwing.com/pngs/281/1/png-transparent-drawing-sneakers-shoe-coloring-book-sport-ear-miscellaneous-white-pencil.png",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
     ]);
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-  }
+  },
 };
