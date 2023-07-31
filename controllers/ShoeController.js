@@ -31,9 +31,9 @@ const ShoeController = {
           },
 
           {
-            model:Review,
-            attributes: ["title", "comment"]
-          }
+            model: Review,
+            attributes: ["title", "comment"],
+          },
         ],
       });
       res.status(200).send(getAllShoesWithType);
@@ -107,6 +107,21 @@ const ShoeController = {
         order: [["price", "DESC"]],
       });
       res.status(200).send(getAllShoesDesc);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send({
+        error: "Server error. An error occurred while executing the action",
+        err,
+      });
+    }
+  },
+
+  async getAllAsc(req, res) {
+    try {
+      const getAllShoesAsc = await Shoe.findAll({
+        order: [["price", "ASC"]],
+      });
+      res.status(200).send(getAllShoesAsc);
     } catch (err) {
       console.error(err);
       res.status(500).send({

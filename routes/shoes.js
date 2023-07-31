@@ -10,6 +10,7 @@ const {
 router.get("/showall", ShoeController.getAll);
 router.get("/showallwithtypes", ShoeController.getAllWithType);
 router.get("/showalldesc", ShoeController.getAllDesc);
+router.get("/showallasc", ShoeController.getAllAsc);
 router.get("/showbyid/:id", ShoeController.getById);
 router.get("/showbybrand/:brand", ShoeController.getByBrand);
 router.get("/showbyprice/:price", ShoeController.getByPrice);
