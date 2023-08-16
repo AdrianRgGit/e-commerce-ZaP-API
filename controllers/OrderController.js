@@ -20,7 +20,7 @@ const OrderController = {
     try {
       const order = await Order.create(req.body);
 
-      res.status(201).send({ msg: "Shoe created successfully...", order });
+      res.status(201).send({ msg: "Order created successfully...", order });
     } catch (err) {
       console.error(err);
       res.status(500).send({

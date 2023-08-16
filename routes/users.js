@@ -27,7 +27,7 @@ router.post(
   isSuperAdmin,
   UserController.createSuperAdmin
 );
-router.post("/login", alreadyLogged, UserController.login);
+router.post("/login", UserController.login);
 router.delete("/logout", authentication, UserController.logout);
 
 module.exports = router;

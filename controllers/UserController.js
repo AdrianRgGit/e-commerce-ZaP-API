@@ -19,7 +19,7 @@ const UserController = {
 
   async getUserRegistered(req, res) {
     try {
-      const getUsers = await User.findOne({
+      const getUser = await User.findOne({
         where: {
           id: req.user.id,
         },
@@ -39,7 +39,7 @@ const UserController = {
       });
 
       console.warn(req.user.id);
-      res.send({ msg: "User: ", getUsers });
+      res.send({ msg: "User: ", getUser });
     } catch (error) {
       console.error(error);
       res.status(500).send({
@@ -48,10 +48,9 @@ const UserController = {
     }
   },
 
-  // getUserOrder
-
   async createUser(req, res, next) {
     try {
+      console.warn(req.body);
       req.body.role = "user";
       const password = await bcrypt.hash(req.body.password, 10);
       const user = await User.create({ ...req.body, password });
@@ -93,17 +92,22 @@ const UserController = {
           email: req.body.email,
         },
       });
+
+      console.log(user);
+
       if (!user) {
-        return res.status(400).send({ msg: "Incorrect username or password" });
-      }
-      const isMatch = bcrypt.compareSync(req.body.password, user.password);
-      if (!isMatch) {
-        return res.status(400).send({ msg: "Incorrect username or password" });
+        console.log("1");
+        return res.status(400).send({ msg: "Incorrect email or password" });
       }
 
-      const token = jwt.sign({ id: user.id }, jwt_secret, {
-        /* expiresIn: "60000", */
-      });
+      const isMatch = bcrypt.compareSync(req.body.password, user.password);
+      if (!isMatch) {
+        console.log("2");
+        return res.status(400).send({ msg: "Incorrect email or password" });
+      }
+
+      const token = jwt.sign({ id: user.id }, jwt_secret);
+
       await Token.create({ token, UserId: user.id });
       res.send({ msg: "Successful login", token, user });
     } catch (error) {
