@@ -93,16 +93,12 @@ const UserController = {
         },
       });
 
-      console.log(user);
-
       if (!user) {
-        console.log("1");
         return res.status(400).send({ msg: "Incorrect email or password" });
       }
 
       const isMatch = bcrypt.compareSync(req.body.password, user.password);
       if (!isMatch) {
-        console.log("2");
         return res.status(400).send({ msg: "Incorrect email or password" });
       }
 
