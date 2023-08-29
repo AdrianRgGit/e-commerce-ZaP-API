@@ -30,4 +30,8 @@ router.post(
 router.post("/login", UserController.login);
 router.delete("/logout", authentication, UserController.logout);
 
+
+//localhost:8080/users/login
+//localhost:8080/users/login
+
 module.exports = router;

@@ -9,13 +9,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      UserId: {
+        type: Sequelize.INTEGER
+      },
+      ShoeOrderId: {
+        type: Sequelize.INTEGER
+      },
       order_date: {
         type: Sequelize.DATE
       },
       amount: {
-        type: Sequelize.DOUBLE
-      },
-      UserId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

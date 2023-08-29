@@ -9,11 +9,13 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+  
   Order.init(
     {
-      order_date: DataTypes.DATE,
-      amount: DataTypes.DOUBLE,
       UserId: DataTypes.INTEGER,
+      ShoeOrderId: DataTypes.INTEGER,
+      order_date: DataTypes.DATE,
+      amount: DataTypes.INTEGER,
     },
     {
       sequelize,
